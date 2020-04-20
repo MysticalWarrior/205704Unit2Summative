@@ -1,0 +1,18 @@
+﻿<Window x:Class="_205704Unit2Summative.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_205704Unit2Summative"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="menuOpen" Click="menuOpen_Click" Header="_Open"/>
+            <MenuItem x:Name="menuSave" Click="menuSave_Click" Header="_Save"/>
+        </Menu>
+        <Grid>
+            <DataGrid x:Name="dgEditor"/>
+        </Grid>
+    </DockPanel>
+</Window>
