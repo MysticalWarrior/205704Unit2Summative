@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_205704Unit2Summative"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        Closing="Window_Closing">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem x:Name="menuOpen" Click="menuOpen_Click" Header="_Open"/>
             <MenuItem x:Name="menuSave" Click="menuSave_Click" Header="_Save"/>
+            <MenuItem x:Name="menuShowAge" Click="menuShowAge_Click" Header="Calculate Age"/>
         </Menu>
         <Grid>
-            <DataGrid x:Name="dgEditor"/>
+            <DataGrid x:Name="dgEditor" CanUserAddRows="True"/>
         </Grid>
     </DockPanel>
 </Window>
