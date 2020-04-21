@@ -105,7 +105,8 @@ namespace _205704Unit2Summative
             MessageBoxResult prompt = MessageBox.Show("The program is closing and will automatically save the current contacts, would you like to *discard* changes since the last save?", "Program Closing", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (prompt == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Changes discarded"); return;
+                //MessageBox.Show("Changes discarded"); 
+                return;
             }
             //Note: Cancelling closing the program was canceled. (change to yesNoCancel to enable)
             else if (prompt == MessageBoxResult.Cancel)
