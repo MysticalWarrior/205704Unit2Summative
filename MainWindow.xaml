@@ -5,16 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_205704Unit2Summative"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
-        Closing="Window_Closing">
+        Height="350" Width="525"
+        Title="Kontacts" FontFamily="Candara" Icon="https://cdn1.iconfinder.com/data/icons/andriod-app-logo/32/icon_k-512.png"
+        Closing="Window_Closing" WindowStartupLocation="CenterScreen" BorderBrush="DarkSlateGray">
+    <Window.Resources>
+        <!--sets the styling for the headers-->
+        <Style x:Key="HeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="LightSlateGray"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="FontFamily" Value="Candara"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+    </Window.Resources>
+
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem x:Name="menuOpen" Click="menuOpen_Click" Header="_Open"/>
-            <MenuItem x:Name="menuSave" Click="menuSave_Click" Header="_Save"/>
-            <MenuItem x:Name="menuShowAge" Click="menuShowAge_Click" Header="Calculate Age"/>
+        <Menu DockPanel.Dock="Top" FontFamily="Candara" Background="SlateGray">
+            <MenuItem Header="_File">
+                <!-- Sub tags can be accessed by clicking [alt -> F -> o/s] -->
+                <MenuItem x:Name="menuOpen" Click="menuOpen_Click" Header="_Open Contacts"/>
+                <MenuItem x:Name="menuSave" Click="menuSave_Click" Header="_Save Contacts"/>
+            </MenuItem>
+            <!-- For a reason I have not yet discovered, menuitems with a command are unclickable...
+            
+            <MenuItem Header="_File">
+                <MenuItem x:Name="menuOpen2" Click="menuOpen_Click" Header="_Open Contacts" Command="ApplicationCommands.Open"/>
+                <MenuItem x:Name="menuSave2" Click="menuSave_Click" Header="_Save Contacts" Command="ApplicationCommands.Save"/>
+            </MenuItem>
+            <MenuItem Header="_Edit"> 
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>-->
+            <MenuItem x:Name="menuAdd" Click="menuAdd_Click" Header="_Add Contact"/>
+            <MenuItem x:Name="menuShowAge" Click="menuShowAge_Click" Header="Find Age"/>
+            <MenuItem x:Name="Help" Header="_Help" Click="Help_Click"/>
         </Menu>
-        <Grid>
-            <DataGrid x:Name="dgEditor" CanUserAddRows="True"/>
+
+        <Grid DockPanel.Dock="Bottom">
+            <DataGrid x:Name="dgEditor" CanUserDeleteRows="True" SelectionMode="Single" HeadersVisibility="Column" AutoGenerateColumns="False"
+                      RowBackground="LightGray" AlternatingRowBackground="Gray" ColumnHeaderStyle="{DynamicResource HeaderStyle}" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header=" First Name" Binding="{Binding firstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding lastName}"/>
+                    <DataGridTextColumn Header="Birthday: Year" Binding="{Binding yearBorn}"/>
+                    <DataGridTextColumn Header="Month" Binding="{Binding monthBorn}"/>
+                    <DataGridTextColumn Header="Day" Binding="{Binding dayBorn}"/>
+                    <DataGridTextColumn Header="Email Address" Binding="{Binding email}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </DockPanel>
 </Window>
